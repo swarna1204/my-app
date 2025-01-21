@@ -1,30 +1,25 @@
 import React from "react";
 
-function PropsComponent({ person }) {
+function PropsComponent(props) {
   return (
-    <div>
-      <h2>Person Details</h2>
-      <p>
-        <strong>Name:</strong> {person.name}
-      </p>
-      <p>
-        <strong>Age:</strong> {person.info.age}
-      </p>
-      <p>
-        <strong>City:</strong> {person.info.city}
-      </p>
-      <p>
-        <strong>Job:</strong> {person.info.job}
-      </p>
-      <div>
-        <strong>Hobbies:</strong>
-        <ul>
-          {person.info.hobbies.map((hobby, index) => (
-            <li key={index}>{hobby}</li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <>
+      <h2>Welcome {props.person.name}!</h2>
+      <p>{props.person.info.age}</p>
+      {Object.keys(props.person.info).map((key) => (
+        <div key={key}>
+          <h3>{key}</h3>
+          {Array.isArray(props.person.info[key]) ? (
+            <ul>
+              {props.person.info[key].map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <p>{props.person.info[key]}</p>
+          )}
+        </div>
+      ))}
+    </>
   );
 }
 
