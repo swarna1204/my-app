@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import MyStateComponent from "./Components/MyStateComponent/MyStateComponent";
+import GameOfThronesCharacters from './Components/Effect/EffectsComponent';
 
 function App() {
 
@@ -9,9 +9,8 @@ function App() {
       <header>
         <h1>This is React</h1>
       </header>
-      {/* TODO create a child component in proper jsx, the component takes the person object as props and render the data */}
-      {/* <PropsComponent person={person} />*/}
-      < MyStateComponent />
+      
+      < GameOfThronesCharacters />
     </div>
   );
 }
